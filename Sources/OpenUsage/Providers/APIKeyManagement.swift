@@ -20,7 +20,7 @@ enum APIKeyStatus: Sendable, Equatable {
     case overrideActive
 }
 
-/// A `ProviderRuntime` that needs a user-supplied API key (currently OpenRouter and Z.ai). The
+/// A `ProviderRuntime` that takes a user-supplied API key (OpenRouter, Z.ai, Command Code). The
 /// provider's Customize detail renders `apiKeyStatus` and writes changes through `saveAPIKey` /
 /// `deleteAPIKey`. The provider delegates to its auth store, so the UI stays provider-agnostic and
 /// writes the same config file the auth store already reads — no parallel credential storage.
@@ -37,4 +37,11 @@ protocol APIKeyManaging: ProviderRuntime {
     /// Remove the saved key. If an env key is present the status falls back to `fromEnvironment`;
     /// otherwise `notSet`.
     func deleteAPIKey() throws
+    /// The read-only source hint shown for a `fromEnvironment` key. Providers that also pick up a key
+    /// from a companion CLI's login (Command Code) name that source instead.
+    var externalKeySourceHint: String { get }
+}
+
+extension APIKeyManaging {
+    var externalKeySourceHint: String { "From Your Environment" }
 }

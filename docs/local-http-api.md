@@ -111,6 +111,7 @@ is still 0 because OpenCode reports whole percentages.
 | Codex | `session`, `weekly`, `spark`, `sparkWeekly`, `credits`, `creditValue`, `rateLimitResets` |
 | Cursor | `totalUsage`, `grokBot`, `autoUsage`, `apiUsage`, `onDemand`, `requests`, `credits` |
 | Antigravity | `geminiSession`, `geminiWeekly`, `nonGeminiSession`, `nonGeminiWeekly` |
+| Command Code | `credits`, `fiveHour`, `weekly`, `orgLimit` |
 | Copilot | `premiumCredits`, `extraUsage`, `orgCredits`, `orgSpend`, `chat`, `completions` |
 | Devin | `daily`, `weekly`, `extraUsageBalance` |
 | Grok | `weekly` |

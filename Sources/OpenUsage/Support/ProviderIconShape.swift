@@ -98,6 +98,7 @@ enum ProviderMarks {
         case "antigravity": return "paperplane"
         case "claude": return "sparkle"
         case "codex": return "circle.hexagongrid"
+        case "commandcode": return "command"
         case "cursor": return "cube"
         case "grok": return "bolt.fill"
         case "ollama": return "cloud"

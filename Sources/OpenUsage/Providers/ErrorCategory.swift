@@ -226,6 +226,26 @@ extension OpenRouterUsageError: CategorizedError {
     }
 }
 
+extension CommandCodeAuthError: CategorizedError {
+    var errorCategory: ErrorCategory {
+        switch self {
+        case .missingKey: .notLoggedIn
+        case .invalidKey: .authInvalid
+        case .saveFailed, .deleteFailed: .other
+        }
+    }
+}
+
+extension CommandCodeUsageError: CategorizedError {
+    var errorCategory: ErrorCategory {
+        switch self {
+        case .connectionFailed: .network
+        case .invalidResponse: .decoding
+        case .requestFailed(let status): ErrorCategory.http(status)
+        }
+    }
+}
+
 extension ZAIAuthError: CategorizedError {
     var errorCategory: ErrorCategory {
         switch self {

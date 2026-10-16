@@ -138,8 +138,8 @@ struct APIKeysSection: View {
         } else {
             let hint = sourceHint
             let display = revealDisplay ? (revealedKey ?? hint) : hint
-            // Only a saved (config-file) key can be cleared here — an env-only key can't be deleted
-            // from the app. Clearing an override falls back to the env key.
+            // Only a saved (config-file) key can be cleared here — an env-only (or CLI login) key can't
+            // be deleted from the app. Clearing an override falls back to the env key.
             let onClear: (() -> Void)? = (status == .saved || status == .overrideActive)
                 ? { remove() }
                 : nil
@@ -159,7 +159,7 @@ struct APIKeysSection: View {
     /// declutter, living inside the field instead of as a label beside it.
     private var sourceHint: String {
         switch status {
-        case .fromEnvironment: "From Your Environment"
+        case .fromEnvironment: provider.externalKeySourceHint
         case .saved: "Saved in App"
         case .overrideActive: "Custom Key"
         case .notSet: ""

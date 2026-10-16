@@ -33,6 +33,9 @@ enum DefaultLayout {
         "cursor.usage", "cursor.auto", "cursor.api", "cursor.grokBot", "cursor.trend",
         "cursor.onDemand", "cursor.today", "cursor.yesterday", "cursor.last30",
 
+        "commandcode.credits", "commandcode.fiveHour", "commandcode.weekly",
+        "commandcode.requests", "commandcode.spend",
+
         "copilot.premium", "copilot.extra", "copilot.orgCredits", "copilot.orgSpend",
         "copilot.chat", "copilot.completions",
 
@@ -80,6 +83,7 @@ enum DefaultLayout {
         "claude.session", "claude.weekly",
         "codex.session", "codex.weekly",
         "cursor.auto", "cursor.api",
+        "commandcode.fiveHour",
         "copilot.premium",
         // Ollama: Monthly is the current plans' meter. Legacy plans' Session and Weekly stay unpinned so
         // they don't spend the two-star cap on rows a current plan never shows.
@@ -112,6 +116,9 @@ enum DefaultLayout {
         // caret. Chat/Completions carry real counts on free only — on paid they're unlimited
         // (suppressed), so they read "No data" there.
         "copilot.orgCredits", "copilot.orgSpend", "copilot.chat", "copilot.completions",
+        // Command Code: Credits and the 5-Hour/Weekly windows stay above the fold; period spend,
+        // request count, and the (off by default) org spend limit sit below the caret.
+        "commandcode.requests", "commandcode.spend", "commandcode.orgLimit",
         "devin.extra",
         "grok.payAsYouGo", "grok.today", "grok.yesterday", "grok.last30",
         // Ollama: the plan meters stay above the fold; purchased credits sit below the caret.
